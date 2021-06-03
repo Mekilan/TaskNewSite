@@ -1,8 +1,8 @@
-import { PRO_LIST } from "./../actions/index";
+import { All_List } from "./../actions/cookieaction";
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case PRO_LIST:
+    case All_List:
       return { ...state, state: action.payload };
     default:
       return state;

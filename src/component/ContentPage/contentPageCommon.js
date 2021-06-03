@@ -3,6 +3,7 @@ import ContentPage from "./contentPage";
 import { connect } from "react-redux";
 import { getProductList } from "../../actions";
 
+
 class ContentPageCommon extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +14,6 @@ class ContentPageCommon extends React.Component {
     };
   }
   async componentDidMount() {
-    debugger;
     let path = "";
     if (this.props.history.location.pathname !== "/") {
       path = this.props.history.location.pathname.split("/")[1];

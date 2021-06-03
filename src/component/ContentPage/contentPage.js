@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LeftFilterPage from "./LeftFilterPage";
 import RightSideProductList from "./rightSideProductList";
 import DetailPage from './../DetailPage';
+import Spinner from 'react-bootstrap/Spinner';
 //import Paginator from "./paginator";
 
 const ContentPage = (props) => {
@@ -33,7 +34,7 @@ const ContentPage = (props) => {
                       callback={callBackFun}
                     />
                   ) : (
-                    <div className="txt-algn-nd">No Data Found...</div>
+                    <Spinner animation="grow" variant="info" className="al-spin" />
                   )
                 ) :
                   null

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Card, CardGroup } from "react-bootstrap";
 
+
 const RightSideProductList = (props) => {
   const [detailview, setDetail] = useState([]);
   const onCardDetailClick = (evt) => {
     debugger;
-    props.callback(props.productlist, true);
+    let id=evt.currentTarget.id;
+    let data=[];
+    data=props.productlist.filter(item=>{return item._id ===id });
+    props.callback(data, true);
   };
   return (
     <React.Fragment>
@@ -14,7 +18,7 @@ const RightSideProductList = (props) => {
           <div
             className="col-lg-4 card-list"
             key={i}
-            id={i}
+            id={item._id}
             onClick={onCardDetailClick}
           >
             <CardGroup>

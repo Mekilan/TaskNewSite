@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-//import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getProductList } from "../actions";
+import {MyContext} from "./../createContext";
 import {
   Nav,
   NavDropdown,
@@ -12,45 +12,27 @@ import {
 } from "react-bootstrap";
 
 const periphals = [
-  { code: 10, name: "monitor" },
-  { code: 20, name: "laptop" },
-  { code: 30, name: "processor" },
-  { code: 40, name: "ram" },
-  { code: 50, name: "hdd" }
+  { code: 10, href: "/monitor", name: "monitor"},
+  { code: 20, href: "/laptop",name: "laptop"},
+  { code: 30, href: "/processor",name: "processor" },
+  { code: 40, href: "/ram",name: "ram"},
+  { code: 50, href: "/hdd",name: "hdd" }
 ];
 
 class HeaderNav extends Component {
   constructor(props) {
     super(props);
+    window.header=this;
     this.state = {
-      scrval: ""
+      scrval: "",
+      cookielen: document.cookie.split(';').length != 0 && document.cookie.split(';')[0] !== "" ?  document.cookie.split(';').length : 0
     };
   }
-  componentDidMount() {}
-  dropDwnClick = async (evt) => {
+  componentDidMount(props) {
     debugger;
-    let value = "";
-    let data = evt.currentTarget.id;
-    if (data.toLowerCase() === "ram") {
-      value = "?limit=21&page=2&category=ram";
-    }
-    if (data.toLowerCase() === "monitor") {
-      value = "?limit=40&page=2&category=monitor";
-    }
-    if (data.toLowerCase() === "processor") {
-      value = "?limit=23&page=3&category=processor";
-    }
-    if (data.toLowerCase() === "hdd") {
-      value = "?limit=30&page=1&category=hdd";
-    }
-    if (data.toLowerCase() === "laptop") {
-      value = "?limit=30&page=1&category=laptop";
-    }
-    await this.props.getProductList(value);
-    window.commomdata.setState({}, () => {
-      window.commomdata.setState({ getdatalist: this.props.productlist.state });
-    });
-  };
+   const {count}= this.props;
+
+  }
   onSearchdata = (evt) => {
     this.setState({ scrval: evt.target.value });
     let data = this.props.productlist.state.filter((item) => {
@@ -59,6 +41,10 @@ class HeaderNav extends Component {
     });
     window.commomdata.setState({ getdatalist: data });
   };
+  cartOnClick=()=>
+  {
+   this.props.callback(true);
+  }
 
   render() {
     return (
@@ -81,11 +67,10 @@ class HeaderNav extends Component {
                 <NavDropdown title="PERIPHERALS" id="basic-nav-dropdown">
                   {periphals.map((item, i) => (
                     <NavDropdown.Item
-                      href="#"
+                      href={item.href}
                       key={item.code}
                       eventKey={i}
                       id={item.name}
-                      onClick={this.dropDwnClick}
                     >
                       {item.name}
                     </NavDropdown.Item>
@@ -102,6 +87,10 @@ class HeaderNav extends Component {
                   onChange={this.onSearchdata}
                 />
               </Form>
+              <div className="icon-d">
+              <a href="#" className="ac-icon" onClick={this.cartOnClick}><i className="fa fa-shopping-cart"> <span className="cart-round">{this.state.cookielen}</span></i></a>
+                <a href="#" className="ac-icon" style={{marginLeft:"25px"}}><i className="fa fa-user"></i></a>
+              </div>
             </Navbar.Collapse>
           </Container>
         </Navbar>

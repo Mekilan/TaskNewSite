@@ -31,8 +31,150 @@ html {
 }
 .card-lst {
   width: 100%;
+  margin-bottom: 10px;
 }
 .txt-algn-nd {
   text-align: center;
   margin-top: 25%;
+}
+.det-img
+{
+  margin-top: 12%;
+}
+.p-nm{
+margin-top: 20%;
+color: #fff;
+}
+.p-prc{
+float: left;
+margin: 30px;
+color: #fff;
+}
+.fn-prc{
+padding: 85px;
+color: #555;
+}
+.s-per
+{
+  float: left;
+  color: lightskyblue;
+}
+.btn-cart{
+  display: flex;
+  margin-top: 62px;
+  padding: 0px;
+}
+.btn-s{
+  width: 38%;
+}
+.btn-cart-add
+{
+  margin-left: 14px;
+  width: 50%;
+}
+.notf
+{
+  position: absolute;
+    top: 52%;
+    left: 0;
+    right: 0;
+    margin-left: 34%;
+}
+.f-etxt{
+  display: flex;
+  width: 180%;
+}
+.inp-txt
+{
+  width: 86%;
+  background: black;
+  color: #fff;
+  margin-top: 11px;
+  padding: 6px;
+}
+
+.btn-n{
+  width: 14%;
+  height: 40px;
+  margin-top: 10px
+}
+.f-row
+{
+    margin-top: 10%;
+    color: #fff;
+    font-weight: bolder;
+}
+.icon-d
+{
+  margin-left: 30px;
+}
+.ac-icon i
+{
+  font-size: 25px;
+  color: #fff;
+  margin-top: 5px;
+}
+.cart-round {
+  color: #fff;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 0px 5px 0px 4px;
+  font-size: 17px;
+  margin-left: -13px;
+  background: red;
+}
+.card-cart-img {
+  width: 120%;
+  margin-left: 6px;
+}
+.cart-l-rw
+{
+  width: 54%;
+    margin-top: 1%;
+}
+.crt-rs{
+  padding: 0px;
+      margin-top: 21px
+    }
+  
+  .txt-ovflw-crt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    margin-top: 21px;
+}
+  .crt-h3
+{
+margin-top: 9%;
+    display: flex;
+    color: #fff;
+}
+
+.remove-l
+{
+  text-decoration:none;
+  color:red;
+}
+.removeitem {
+  padding: 22px 10px 15px 3px;
+  background: #333;
+  border-radius: 5px;
+  margin: 0px;
+  width: 100%;
+}
+.txt-nol
+{
+  text-align: center;
+  margin-left: 50%;
+  color: #fff;
+}
+.emp-c
+{
+  margin-top: 25%;
+}
+.al-spin
+{
+  margin-top: 28%;
+    margin-left: 50%;
 }
