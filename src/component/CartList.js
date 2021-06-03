@@ -13,7 +13,7 @@ class CartList extends React.Component {
     }
     async componentDidMount(){
         debugger;
-        let querystring = "?limit=10&page=2&category=laptop";
+        let querystring = "?limit=500&page=2&category=";
         await this.props.getAllProduct(querystring);
         this.setState({},()=>
         {
