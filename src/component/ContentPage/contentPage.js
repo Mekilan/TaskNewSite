@@ -27,17 +27,14 @@ const ContentPage = (props) => {
             </div>
             <div className="col-lg-9">
               <div className="row">
-                {props.listdata !== undefined ? (
-                  props.listdata.length !== 0 ? (
+                {props.listdata === undefined ? <Spinner animation="grow" variant="info" className="al-spin" /> :
+                  props.listdata.length !== 0 ? 
                     <RightSideProductList
                       productlist={props.listdata}
                       callback={callBackFun}
                     />
-                  ) : (
-                    <Spinner animation="grow" variant="info" className="al-spin" />
-                  )
-                ) :
-                  null
+                    :
+                  <div className="no-fnd">No Data Found...</div>
                 }
               </div>
             </div>
